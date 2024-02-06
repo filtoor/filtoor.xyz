@@ -5,7 +5,7 @@ import "./globals.css";
 const font = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Filtoor",
+  title: "filtoor",
   description:
     "filtoor.xyz is a service that provides a performant API for cNFT spam detection on Solana",
 };

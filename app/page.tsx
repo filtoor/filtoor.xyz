@@ -28,7 +28,15 @@ export default function Home() {
       </p>
       <p>
         We currently offer a free rate-limited public API and can work with
-        projects to offer higher rate limits for a reasonable fee.
+        projects to offer higher rate limits for a reasonable fee.{" "}
+        <a
+          href="https://twitter.com/solarnius"
+          className="underline font-bold"
+          target="blank"
+        >
+          Get in touch
+        </a>
+        with us to discuss.
       </p>
       <p>
         Our API is hosted at{" "}
