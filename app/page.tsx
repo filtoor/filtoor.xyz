@@ -9,7 +9,7 @@ export default function Home() {
       <h2
         className={`${headerFont.className} text-7xl font-bold bg-gradient-to-r from-orange-100 to-white inline-block text-transparent bg-clip-text tracking-normal leading-normal`}
       >
-        filtoor.xyz
+        f
       </h2>
       <p>
         <a href="#" className="font-bold underline">
@@ -35,13 +35,13 @@ export default function Home() {
           target="blank"
         >
           Get in touch
-        </a>
+        </a>{" "}
         with us to discuss.
       </p>
       <p>
         Our API is hosted at{" "}
         <a
-          href="https://github.com/solarnius/cnft-spam-filter"
+          href="https://api.filtoor.xyz"
           target="_blank"
           className="font-bold underline"
         >
