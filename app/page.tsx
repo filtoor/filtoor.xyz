@@ -12,11 +12,7 @@ export default function Home() {
         filtoor.xyz
       </h2>
       <p>
-        <a
-          href="https://filtoor.xyz"
-          target="_blank"
-          className="font-bold underline"
-        >
+        <a href="#" className="font-bold underline">
           filtoor.xyz
         </a>{" "}
         is a service that provides a performant API for cNFT spam detection on
@@ -34,6 +30,36 @@ export default function Home() {
         We currently offer a free rate-limited public API and can work with
         projects to offer higher rate limits for a reasonable fee.
       </p>
+      <p>
+        Our API is hosted at{" "}
+        <a
+          href="https://github.com/solarnius/cnft-spam-filter"
+          target="_blank"
+          className="font-bold underline"
+        >
+          api.filtoor.xyz
+        </a>{" "}
+        and has OpenAPI{" "}
+        <a href="/docs" className="font-bold underline">
+          documentation
+        </a>
+        .
+      </p>
+      <div className="flex flex-col gap-2">
+        <p>
+          We are open sourced and rely on community support to keep going. If
+          you would like to contribute, please send any SOL assets to:
+        </p>
+        <span className="font-bold bg-slate-600 p-2 rounded-md text-xs w-max">
+          filtoor.sol
+        </span>
+        <p>aka</p>
+        <span className="font-bold bg-slate-600 p-2 rounded-md text-xs w-max">
+          6yNL4z5NTPiJjxhcTAHd1EnfhtbP2EfTZBVZeYdKdLQL
+        </span>
+      </div>
+
+      <p>We very much appreciate your support in fighting spam on Solana ❤️</p>
     </div>
   );
 }
