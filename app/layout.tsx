@@ -17,7 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={font.className}>{children}</body>
+      <body className={`${font.className} bg-zinc-800`}>
+        <main className="flex justify-center">{children}</main>
+      </body>
     </html>
   );
 }

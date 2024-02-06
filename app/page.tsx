@@ -1,20 +1,31 @@
 import Image from "next/image";
-import { Sriracha } from "next/font/google";
+import { Playfair_Display } from "next/font/google";
 
-const headerFont = Sriracha({ subsets: ["latin"], weight: ["400"] });
+const headerFont = Playfair_Display({ subsets: ["latin"], weight: ["400"] });
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center gap-8 p-24">
+    <div className="flex min-h-screen flex-col items-center gap-8 max-w-md p-8 text-zinc-200">
       <h2
-        className={`${headerFont.className} text-8xl font-bold bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text`}
+        className={`${headerFont.className} text-7xl font-bold bg-gradient-to-r from-orange-100 to-white inline-block text-transparent bg-clip-text tracking-normal leading-normal`}
       >
-        filtoor
+        filtoor.xyz
       </h2>
       <p>
-        filtoor.xyz is a service that provides a performant API for cNFT spam
-        detection on Solana, created by the maintainers of{" "}
-        <a href="https://github.com/solarnius/cnft-spam-filter">
+        <a
+          href="https://filtoor.xyz"
+          target="_blank"
+          className="font-bold underline"
+        >
+          filtoor.xyz
+        </a>{" "}
+        is a service that provides a performant API for cNFT spam detection on
+        Solana, created by the maintainers of{" "}
+        <a
+          href="https://github.com/solarnius/cnft-spam-filter"
+          target="_blank"
+          className="font-bold underline"
+        >
           cnft-spam-filter
         </a>
         .
@@ -23,6 +34,6 @@ export default function Home() {
         We currently offer a free rate-limited public API and can work with
         projects to offer higher rate limits for a reasonable fee.
       </p>
-    </main>
+    </div>
   );
 }
