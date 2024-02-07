@@ -47,10 +47,14 @@ async function getClassification(address) {
 }
 
 export default function Form() {
-  const [address, setAddress] = useState("");
-  const [image, setImage] = useState(null);
+  const [address, setAddress] = useState(
+    "A1xhLVywcq6SeZnmRG1pUzoSWxVMpS6J5ShEbt3smQJr"
+  );
+  const [image, setImage] = useState(
+    "https://nftstorage.link/ipfs/bafybeih3w6jc3tnw4lrok5ewtgcnoxer76ef5tdxkj773fyhzvyk2x3tgq/5525.png"
+  );
   const [loading, setLoading] = useState(false);
-  const [classification, setClassification] = useState("none");
+  const [classification, setClassification] = useState("ham");
 
   const handleUpdate = async (e) => {
     setClassification("none");
@@ -110,6 +114,7 @@ export default function Form() {
           type="text"
           className="rounded-md bg-zinc-700 p-4 w-full"
           onChange={handleUpdate}
+          value={address}
         />
         <button
           className={`rounded-md bg-zinc-700 p-4 ${
@@ -118,7 +123,7 @@ export default function Form() {
           disabled={buttonDisabled}
           onClick={handleClick}
         >
-          submit
+          classify
         </button>
       </div>
     </div>
