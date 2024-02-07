@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { Playfair_Display } from "next/font/google";
 
 const headerFont = Playfair_Display({ subsets: ["latin"], weight: ["400"] });
@@ -9,7 +8,7 @@ export default function Home() {
       <h2
         className={`${headerFont.className} text-7xl font-bold bg-gradient-to-r from-orange-100 to-white inline-block text-transparent bg-clip-text tracking-normal leading-normal`}
       >
-        f
+        filtoor
       </h2>
       <p>
         <a href="#" className="font-bold underline">
@@ -39,24 +38,20 @@ export default function Home() {
         with us to discuss.
       </p>
       <p>
-        Our API is hosted at{" "}
-        <a
-          href="https://api.filtoor.xyz"
-          target="_blank"
-          className="font-bold underline"
-        >
-          api.filtoor.xyz
-        </a>{" "}
-        and has OpenAPI{" "}
+        Feel free to read our{" "}
         <a href="/docs" className="font-bold underline">
           documentation
+        </a>{" "}
+        and play with our API in our{" "}
+        <a href="/playground" className="font-bold underline">
+          playground
         </a>
         .
       </p>
       <div className="flex flex-col gap-2">
         <p>
-          We are open sourced and rely on community support to keep going. If
-          you would like to contribute, please send any SOL assets to:
+          We are open source and rely on community support to keep going. If you
+          would like to contribute, please send any SOL assets to:
         </p>
         <span className="font-bold bg-slate-600 p-2 rounded-md text-xs w-max self-center my-4">
           filtoor.sol
