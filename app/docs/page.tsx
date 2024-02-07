@@ -1,127 +1,59 @@
 "use client";
 import { RedocStandalone } from "redoc";
+import { useState } from "react";
 
 export default function Docs() {
-  return (
-    <RedocStandalone
-      spec={{
-        swagger: "2.0",
-        info: {
-          title: "api.filtoor.xyz",
-          version: "v1",
-        },
-        paths: {
-          "/classifyOne": {
-            post: {
-              operationId: "classifyOne",
-              summary: "Classify a single cNFT",
-              description:
-                "Returns the classification of a single cNFT image as spam or ham.",
-              requestBody: {
-                content: {
-                  "application/json": {
-                    schema: {
-                      type: "object",
-                      properties: {
-                        address: {
-                          type: "string",
-                          description: "On-chain address of the cNFT image",
-                        },
-                      },
-                    },
-                  },
-                },
-              },
-              produces: ["application/json"],
-              responses: {
-                "200": {
-                  description: "200 response",
-                  examples: {
-                    "application/json": { classification: "spam" },
-                  },
-                },
-              },
-            },
-          },
-          "/classifyMany": {
-            post: {
-              operationId: "classifyMany",
-              summary: "Classify many cNFTs",
-              description:
-                "Returns the classification of many cNFTs as an array.",
-              requestBody: {
-                content: {
-                  "application/json": {
-                    schema: {
-                      type: "object",
-                      properties: {
-                        addresses: {
-                          type: "array",
-                          items: {
-                            type: "string",
-                          },
-                          description: "On-chain addresses of the cNFT images",
-                        },
-                      },
-                    },
-                  },
-                },
-              },
-              produces: ["application/json"],
-              responses: {
-                "200": {
-                  description: "200 response",
-                  examples: {
-                    "application/json": {
-                      classifications: [
-                        { address: "string", classification: "spam" },
-                      ],
-                    },
-                  },
-                },
-              },
-            },
-          },
-          "/classifyAccount": {
-            post: {
-              operationId: "classifyAccount",
-              summary: "Classify all cNFTs in an account",
-              description:
-                "Returns the classification of all cNFTs in an account.",
-              requestBody: {
-                content: {
-                  "application/json": {
-                    schema: {
-                      type: "object",
-                      properties: {
-                        address: {
-                          type: "string",
-                          description: "On-chain address of the account.",
-                        },
-                      },
-                    },
-                  },
-                },
-              },
-              produces: ["application/json"],
-              responses: {
-                "200": {
-                  description: "200 response",
-                  examples: {
-                    "application/json": {
-                      classifications: [
-                        { address: "string", classification: "spam" },
-                      ],
-                    },
-                  },
-                },
-              },
-            },
-          },
-        },
+  const [isLoading, setIsLoading] = useState(true);
 
-        consumes: ["application/json"],
-      }}
-    />
+  return (
+    <>
+      {isLoading && (
+        <div className="h-lvh w-lvw fixed z-20 bg-zinc-800 flex items-center justify-center top-0 left-0 text-slate-200 font-bold overflow-hidden">
+          Loading...
+        </div>
+      )}
+
+      <RedocStandalone
+        options={{ hideLoading: true }}
+        onLoaded={() => setIsLoading(false)}
+        spec={{
+          swagger: "2.0",
+          info: {
+            title: "api.filtoor.xyz",
+            version: "v1",
+          },
+          paths: {
+            "/classify?address={address}": {
+              get: {
+                operationId: "classify?address={address}",
+                summary: "Classify a cNFT as spam/ham",
+                description:
+                  "Returns the classification of a single cNFT image as spam or ham.",
+                parameters: [
+                  {
+                    in: "query",
+                    name: "address",
+                    required: true,
+                    description: "The on-chain address of the cNFT to classify",
+                    type: "string",
+                  },
+                ],
+                produces: ["application/json"],
+                responses: {
+                  "200": {
+                    description: "200 response",
+                    examples: {
+                      "application/json": { classification: "spam" },
+                    },
+                  },
+                },
+              },
+            },
+          },
+
+          consumes: ["application/json"],
+        }}
+      />
+    </>
   );
 }
