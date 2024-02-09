@@ -58,7 +58,7 @@ export default function Home() {
         </span>
         <p>aka</p>
         <span className="font-bold bg-slate-600 p-2 rounded-md text-xs w-max self-center my-4">
-          6yNL4z5NTPiJjxhcTAHd1EnfhtbP2EfTZBVZeYdKdLQL
+          FLTRjoLrgPHcFTQzW2tKdnZBhVJYY1rg9HUF3nZToJ3z
         </span>
       </div>
 
