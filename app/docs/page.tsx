@@ -23,27 +23,36 @@ export default function Docs() {
             version: "v1",
           },
           paths: {
-            "/classify?address={address}": {
-              get: {
-                operationId: "classify?address={address}",
-                summary: "Classify a cNFT as spam/ham",
-                description:
-                  "Returns the classification of a single cNFT image as spam or ham.",
-                parameters: [
-                  {
-                    in: "query",
-                    name: "address",
-                    required: true,
-                    description: "The on-chain address of the cNFT to classify",
-                    type: "string",
+            "/classify": {
+              post: {
+                operationId: "classify",
+                summary: "Classify NFTs as spam/ham",
+                description: "Classifies NFTs as either spam or ham.",
+                requestBody: {
+                  content: {
+                    "application/json": {
+                      schema: {
+                        type: "object",
+                        properties: {
+                          ids: {
+                            type: "string[]",
+                            description: "The ids of the cNFTs to classify",
+                            example: [
+                              "5hwBHvZS1QHrRRUmiWqJEKxGM8or88WGX8fbzyYxqZxS",
+                              "8u4TKYfDYbuXY3HKZQxfxhgEfKBD3gvmWe9q5XAuYYf1",
+                            ],
+                          },
+                        },
+                      },
+                    },
                   },
-                ],
+                },
                 produces: ["application/json"],
                 responses: {
                   "200": {
                     description: "200 response",
                     examples: {
-                      "application/json": { classification: "spam" },
+                      "application/json": ["spam", "ham"],
                     },
                   },
                 },

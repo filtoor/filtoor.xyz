@@ -29,18 +29,18 @@ async function getImage(address) {
 
 async function getClassification(address) {
   try {
-    const response = await fetch(
-      `https://api.filtoor.xyz/classify?address=${address}`,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    const response = await fetch(`https://api.filtoor.xyz/classify`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        ids: [address],
+      }),
+    });
     const data = await response.json();
 
-    return data.classification;
+    return data[0];
   } catch (e) {
     return "error";
   }
