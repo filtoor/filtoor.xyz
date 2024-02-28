@@ -14,9 +14,9 @@ async function getAssetsForWallet(page) {
         id: "string",
         method: "getAssetsByOwner",
         params: {
-          ownerAddress: "6yNL4z5NTPiJjxhcTAHd1EnfhtbP2EfTZBVZeYdKdLQL",
+          ownerAddress: "BAVjpySHMMGDpq3whU7qaqCCRE8ksCeGwxa53Qv2i8jS",
           page: page,
-          limit: 20,
+          limit: 10,
           sortBy: {
             sortBy: "created",
             sortDirection: "asc",
